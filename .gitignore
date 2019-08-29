@@ -51,8 +51,6 @@ workspace.xml
 modules.xml
 data
 *.json
-server
-client
 proto/hello_http/hello_http.*.go
 proto/customer_http/*.go
 proto/echo_http/*.go
