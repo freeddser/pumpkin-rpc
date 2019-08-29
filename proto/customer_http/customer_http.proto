@@ -1,0 +1,81 @@
+syntax = "proto3";
+option go_package = "customer_http";
+
+
+
+package customer_http;
+
+import "google/api/annotations.proto";
+
+message CustomerRequest {
+    int64 id = 1;   // Unique ID number for a Customer.
+    string name = 2;
+    string email = 3;
+    string phone = 4;
+
+    message Address {
+        string street = 1;
+        string city = 2;
+        string state = 3;
+        string zip = 4;
+        bool isShippingAddress = 5;
+    }
+
+    repeated Address addresses = 5;
+}
+
+message CustomerList {
+     message Customer {
+         int64 id = 1;   // Unique ID number for a Customer.
+         string name = 2;
+         string email = 3;
+         string phone = 4;
+     }
+
+     repeated Customer customers = 2;
+}
+
+
+message CustomerResponse {
+    int64 id = 1;
+    bool success = 2;
+}
+
+
+
+message CustomerGeneralResponse {
+    bool success = 1;
+    message CustomerInfo {
+             int64 id = 1;   // Unique ID number for a Customer.
+             string name = 2;
+             string email = 3;
+             string phone = 4;
+         }
+   repeated CustomerInfo customerInfos = 5;
+}
+
+
+
+
+
+
+
+message CustomerFilter {
+    string keyword = 1;
+}
+
+service CustomerService {
+
+    rpc GetCustomers(CustomerFilter) returns (CustomerList) {
+    option (google.api.http) = {
+    			get: "/v1/customer/all"
+    		};
+    }
+
+    rpc CreateCustomer (CustomerRequest) returns (CustomerGeneralResponse) {
+    option (google.api.http) = {
+    			post: "/v1/customer"
+    			body: "*"
+    		};
+    		}
+}

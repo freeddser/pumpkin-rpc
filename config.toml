@@ -1,0 +1,21 @@
+[server]
+mode = "production"
+port = 8080
+debug = true
+http_timeout = 10000
+jwt_timeout = 8640000
+log_path = "./log/rpc-log.log"
+endpoint = "127.0.0.1:50055"
+
+[production]
+timezone = "Asia/Shanghai"
+
+
+[pem]
+crt_file = "./pem/www.lijiuyang.com.crt"
+key_file = "./pem/www.lijiuyang.com.key"
+domain = "www.lijiuyang.com"
+
+[switch]
+log = "on"
+postgresql = "on"

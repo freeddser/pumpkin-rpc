@@ -1,0 +1,60 @@
+
+# Folders
+_obj
+_test
+
+# Architecture specific extensions/prefixes
+*.[568vq]
+[568vq].out
+
+*.cgo1.go
+*.cgo2.c
+_cgo_defun.c
+_cgo_gotypes.go
+_cgo_export.*
+
+_testmain.go
+
+*.exe
+*.test
+*.prof
+
+# Configuration file
+config.json
+
+# Log file
+*.log
+
+# Key files
+inuit_rsa
+inuit_rsa.pub
+
+# PID file
+*.pid
+
+# Temp vim files
+*.swp
+
+# MAC file
+.DS_Store
+
+#Intellij files
+.idea
+*.iml
+
+db.sql
+Tix
+
+Run
+vcs.xml
+workspace.xml
+modules.xml
+data
+*.json
+server
+client
+proto/hello_http/hello_http.*.go
+proto/customer_http/*.go
+proto/echo_http/*.go
+*.pb.go
+proto/monitor_http/*.go

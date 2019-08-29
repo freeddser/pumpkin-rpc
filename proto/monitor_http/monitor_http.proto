@@ -1,0 +1,28 @@
+syntax = "proto3";
+option go_package = "monitor_http";
+
+package monitor_http;
+
+import "google/api/annotations.proto";
+//https://beego.me/docs/module/toolbox.md
+
+message MonitorRequest {
+    int64 id = 1;   // Unique ID number for a Monitor.
+}
+
+message MonitorResponse {
+    string goroutine = 1;
+    string heap = 2;
+    string threadcreate = 3;
+    string block = 4;
+     string gc_summary = 5;
+    string response_time = 6;
+}
+
+service MonitorService {
+    rpc GetMonitors(MonitorRequest) returns (MonitorResponse) {
+    option (google.api.http) = {
+    			get: "/v1/monitor"
+    		};
+    }
+}
